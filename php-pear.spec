@@ -1,24 +1,23 @@
-%define 	_PEAR_version 1.5.0
+%define 	_PEAR_version 1.5.2
 %define 	_Archive_Tar_version 1.3.2
-%define 	_Console_Getopt_version 1.2.1
-%define 	_DB_version 1.7.8
+%define 	_Console_Getopt_version 1.2.2
+%define 	_DB_version 1.7.11
 %define 	_Log_version 1.9.10
 %define 	_Mail_version 1.1.14
 %define 	_Mail_Mime_version 1.3.1
-%define 	_Net_SMTP_version 1.2.8
-%define 	_Net_Socket_version 1.0.6
-%define 	_PHPUnit_version 1.3.2
+%define 	_Net_SMTP_version 1.2.10
+%define 	_Net_Socket_version 1.0.7
 %define 	_XML_Parser_version 1.2.8
 %define 	_XML_RPC_version 1.5.1
 
-%define 	_pear_packages PEAR Archive_Tar Console_Getopt DB Log Mail Mail_Mime Net_Socket Net_SMTP PHPUnit XML_Parser XML_RPC
+%define 	_pear_packages PEAR Archive_Tar Console_Getopt DB Log Mail Mail_Mime Net_Socket Net_SMTP XML_Parser XML_RPC
 
 %define		_requires_exceptions pear(../PEAR/RunTest.php)
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.2.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -31,7 +30,6 @@ Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tar.bz2
 Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tar.bz2
 Source7:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tar.bz2
 Source8:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tar.bz2
-Source9:	http://pear.php.net/get/PHPUnit-%{_PHPUnit_version}.tar.bz2
 Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tar.bz2
 Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tar.bz2
 Source20:	fixregistry.php
@@ -48,7 +46,6 @@ Provides:	php-pear-Mail = %{_Mail_version}
 Provides:	php-pear-Mail_Mime = %{_Mail_Mime_version}
 Provides:	php-pear-Net_SMTP = %{_Net_SMTP_version}
 Provides:	php-pear-Net_Socket = %{_Net_Socket_version}
-Provides:	php-pear-PHPUnit = %{_PHPUnit_version}
 Provides:	php-pear-XML_Parser = %{_XML_Parser_version}
 Provides:	php-pear-XML_RPC = %{_XML_RPC_version}
 Requires(post): php-cli php-pcre php-xml php-xmlrpc hping2
@@ -69,23 +66,22 @@ Obsoletes:	php-pear-Mail
 Obsoletes:	php-pear-Mail_Mime
 Obsoletes:	php-pear-Net_SMTP
 Obsoletes:	php-pear-Net_Socket
-Obsoletes:	php-pear-PHPUnit
 Obsoletes:	php-pear-XML_Parser
 Obsoletes:	php-pear-XML_RPC
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-PEAR is short for "PHP Extension and Application Repository" and is
-pronounced just like the fruit. The purpose of PEAR is to provide:
+PEAR is short for "PHP Extension and Application Repository" and is pronounced
+just like the fruit. The purpose of PEAR is to provide:
 
-    * A structured library of open-sourced code for PHP users
-    * A system for code distribution and package maintenance
-    * A standard style for code written in PHP, specified here
-    * The PHP Foundation Classes (PFC), see more below
-    * The PHP Extension Code Library (PECL), see more below
-    * A web site, mailing lists and download mirrors to support the
-      PHP/PEAR community 
+ * A structured library of open-sourced code for PHP users
+ * A system for code distribution and package maintenance
+ * A standard style for code written in PHP, specified here
+ * The PHP Foundation Classes (PFC), see more below
+ * The PHP Extension Code Library (PECL), see more below
+ * A web site, mailing lists and download mirrors to support the PHP/PEAR
+   community
 
 %prep
 
@@ -116,9 +112,6 @@ mv package.xml Net_SMTP.xml
 
 tar -jxf %{SOURCE8}
 mv package.xml Net_Socket.xml
-
-tar -jxf %{SOURCE9}
-mv package.xml PHPUnit.xml
 
 tar -jxf %{SOURCE10}
 mv package.xml XML_Parser.xml
@@ -252,13 +245,6 @@ install -m0644 Net_SMTP.xml %{buildroot}%{_datadir}/pear/packages/Net_SMTP.xml
 # Net_Socket
 install Net_Socket-%{_Net_Socket_version}/*.php %{buildroot}%{_datadir}/pear/Net
 install -m0644 Net_Socket.xml %{buildroot}%{_datadir}/pear/packages/Net_Socket.xml
-
-# PHPUnit
-install -d %{buildroot}%{_datadir}/pear/PHPUnit/GUI
-install PHPUnit-%{_PHPUnit_version}/*.php %{buildroot}%{_datadir}/pear
-install PHPUnit-%{_PHPUnit_version}/PHPUnit/*.php %{buildroot}%{_datadir}/pear/PHPUnit
-install PHPUnit-%{_PHPUnit_version}/PHPUnit/GUI/*.php %{buildroot}%{_datadir}/pear/PHPUnit/GUI
-install -m0644 PHPUnit.xml %{buildroot}%{_datadir}/pear/packages/PHPUnit.xml
 
 # XML_Parser
 install -d %{buildroot}%{_datadir}/pear/XML
@@ -457,11 +443,6 @@ rm -rf %{buildroot}
 %{_datadir}/pear/Net/Socket.php
 %{_datadir}/pear/packages/Net_Socket.xml
 
-# PHPUnit
-%{_datadir}/pear/PHPUnit.php
-%{_datadir}/pear/PHPUnit
-%{_datadir}/pear/packages/PHPUnit.xml
-
 # XML_Parser
 %doc XML_Parser-%{_XML_Parser_version}/tests/*
 %{_datadir}/pear/XML/Parser.php
@@ -471,5 +452,3 @@ rm -rf %{buildroot}
 %{_datadir}/pear/XML/RPC.php
 %{_datadir}/pear/XML/RPC/Server.php
 %{_datadir}/pear/packages/XML_RPC.xml
-
-
