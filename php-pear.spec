@@ -1,6 +1,7 @@
 %define 	_PEAR_version 1.5.4
 %define 	_Archive_Tar_version 1.3.2
 %define 	_Console_Getopt_version 1.2.2
+%define 	_Structures_Graph_version 1.0.2
 %define 	_DB_version 1.7.11
 %define 	_Log_version 1.9.10
 %define 	_Mail_version 1.1.14
@@ -10,14 +11,14 @@
 %define 	_XML_Parser_version 1.2.8
 %define 	_XML_RPC_version 1.5.1
 
-%define 	_pear_packages PEAR Archive_Tar Console_Getopt DB Log Mail Mail_Mime Net_Socket Net_SMTP XML_Parser XML_RPC
+%define 	_pear_packages PEAR Archive_Tar Console_Getopt Structures_Graph DB Log Mail Mail_Mime Net_Socket Net_SMTP XML_Parser XML_RPC
 
-%define		_requires_exceptions pear(../PEAR/RunTest.php)
+%define		_requires_exceptions pear(../PEAR/RunTest.php)\\|pear(PHPUnit.php)
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.2.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -32,6 +33,7 @@ Source7:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tar.bz2
 Source8:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tar.bz2
 Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tar.bz2
 Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tar.bz2
+Source12:	http://pear.php.net/get/Structures_Graph-%{_Structures_Graph_version}.tar.bz2
 Source20:	fixregistry.php
 Provides:	pear = %{version}
 Provides:	php-pear-PEAR = %{_PEAR_version}
@@ -48,11 +50,13 @@ Provides:	php-pear-Net_SMTP = %{_Net_SMTP_version}
 Provides:	php-pear-Net_Socket = %{_Net_Socket_version}
 Provides:	php-pear-XML_Parser = %{_XML_Parser_version}
 Provides:	php-pear-XML_RPC = %{_XML_RPC_version}
+Provides:	php-pear-Structures_Graph = %{_Structures_Graph_version}
 Requires(post): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires(preun): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires:	php-cli php-pcre php-xml php-xmlrpc
 Requires:	hping2
 BuildRequires:	dos2unix
+BuildRequires:	recode
 BuildRequires:	php-cli php-pcre php-xml php-xmlrpc
 Obsoletes:	php-pear-PEAR
 Obsoletes:	php-pear-PEAR-Command
@@ -68,6 +72,7 @@ Obsoletes:	php-pear-Net_SMTP
 Obsoletes:	php-pear-Net_Socket
 Obsoletes:	php-pear-XML_Parser
 Obsoletes:	php-pear-XML_RPC
+Obsoletes:	php-pear-Structures_Graph
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
@@ -118,6 +123,13 @@ mv package.xml XML_Parser.xml
 
 tar -jxf %{SOURCE11}
 mv package.xml XML_RPC.xml
+
+tar -jxf %{SOURCE12}
+# fix bad xml
+recode -d latin-1..html < package.xml > Structures_Graph.xml
+
+# cleanup
+rm -f package*.xml
 
 cp %{SOURCE20} fixregistry.php
 
@@ -215,6 +227,13 @@ install -m0644 Archive_Tar.xml %{buildroot}%{_datadir}/pear/packages/Archive_Tar
 # Console_Getopt
 install Console_Getopt-%{_Console_Getopt_version}/Console/*.php %{buildroot}%{_datadir}/pear/Console
 install -m0644 Console_Getopt.xml %{buildroot}%{_datadir}/pear/packages/Console_Getopt.xml
+
+# Structures_Graph
+install -d %{buildroot}%{_datadir}/pear/Structures/Graph/Manipulator
+install Structures_Graph-%{_Structures_Graph_version}/Structures/*.php %{buildroot}%{_datadir}/pear/Structures
+install Structures_Graph-%{_Structures_Graph_version}/Structures/Graph/*.php %{buildroot}%{_datadir}/pear/Structures/Graph/
+install Structures_Graph-%{_Structures_Graph_version}/Structures/Graph/Manipulator/*.php %{buildroot}%{_datadir}/pear/Structures/Graph/Manipulator
+install -m0644 Structures_Graph.xml %{buildroot}%{_datadir}/pear/packages/Structures_Graph.xml
 
 # DB
 install -d %{buildroot}%{_datadir}/pear/DB
@@ -403,6 +422,11 @@ rm -rf %{buildroot}
 # Console_Getopt
 %{_datadir}/pear/Console/*.php
 %{_datadir}/pear/packages/Console_Getopt.xml
+
+# Structures_Graph
+%{_datadir}/pear/Structures/*.php
+%{_datadir}/pear/Structures/Graph
+%{_datadir}/pear/packages/Structures_Graph.xml
 
 # DB
 %doc DB-%{_DB_version}/{doc/*,tests}
