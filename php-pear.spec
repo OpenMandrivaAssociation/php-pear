@@ -1,6 +1,6 @@
 %define 	_PEAR_version 1.6.0
 %define 	_Archive_Tar_version 1.3.2
-%define 	_Console_Getopt_version 1.2.2
+%define 	_Console_Getopt_version 1.2.3
 %define 	_Structures_Graph_version 1.0.2
 %define 	_DB_version 1.7.11
 %define 	_Log_version 1.9.11
@@ -18,7 +18,7 @@
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.2.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
