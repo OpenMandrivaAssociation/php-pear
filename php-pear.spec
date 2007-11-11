@@ -103,7 +103,7 @@ mv package.xml Archive_Tar.xml
 tar -jxf %{SOURCE2}
 mv package.xml Console_Getopt.xml
 
-tar -jxf %{SOURCE3}
+tar -zxf %{SOURCE3}
 mv package.xml DB.xml
 
 tar -jxf %{SOURCE4}
