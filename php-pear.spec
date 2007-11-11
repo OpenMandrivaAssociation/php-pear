@@ -4,7 +4,7 @@
 %define 	_Archive_Tar_version 1.3.2
 %define 	_Console_Getopt_version 1.2.3
 %define 	_Structures_Graph_version 1.0.2
-%define 	_DB_version 1.7.12
+%define 	_DB_version 1.7.13
 %define 	_Log_version 1.9.11
 %define 	_Mail_version 1.1.14
 %define 	_Mail_Mime_version 1.5.2
@@ -18,7 +18,7 @@
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
-Version:	5.2.4
+Version:	5.2.5
 Release:	%mkrel 1
 License:	PHP License
 Group:		Development/PHP
@@ -26,7 +26,7 @@ URL:		http://pear.php.net/package/PEAR/
 Source0:	http://pear.php.net/get/PEAR-%{_PEAR_version}.tgz
 Source1:	http://pear.php.net/get/Archive_Tar-%{_Archive_Tar_version}.tar.bz2
 Source2:	http://pear.php.net/get/Console_Getopt-%{_Console_Getopt_version}.tar.bz2
-Source3:	http://pear.php.net/get/DB-%{_DB_version}.tar.bz2
+Source3:	http://pear.php.net/get/DB-%{_DB_version}.tgz
 Source4:	http://pear.php.net/get/Log-%{_Log_version}.tar.bz2
 Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tar.bz2
 Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tar.bz2
