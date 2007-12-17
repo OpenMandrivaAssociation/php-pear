@@ -77,7 +77,6 @@ Obsoletes:	php-pear-XML_Parser
 Obsoletes:	php-pear-XML_RPC
 Obsoletes:	php-pear-Structures_Graph
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 PEAR is short for "PHP Extension and Application Repository" and is pronounced
