@@ -5,11 +5,11 @@
 %define 	_Console_Getopt_version 1.2.3
 %define 	_Structures_Graph_version 1.0.2
 %define 	_DB_version 1.7.13
-%define 	_Log_version 1.9.16
+%define 	_Log_version 1.10.0
 %define 	_Mail_version 1.1.14
 %define 	_Mail_Mime_version 1.5.2
 %define 	_Mail_mimeDecode_version 1.5.0
-%define 	_Net_SMTP_version 1.2.10
+%define 	_Net_SMTP_version 1.2.11
 %define 	_Net_Socket_version 1.0.8
 %define 	_XML_Parser_version 1.2.8
 %define 	_XML_RPC_version 1.5.1
@@ -31,7 +31,7 @@ Source4:	http://pear.php.net/get/Log-%{_Log_version}.tgz
 Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tar.bz2
 Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tar.bz2
 Source7:	http://pear.php.net/get/Mail_mimeDecode-%{_Mail_mimeDecode_version}.tar.bz2
-Source8:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tar.bz2
+Source8:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tgz
 Source9:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tar.bz2
 Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tar.bz2
 Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tar.bz2
