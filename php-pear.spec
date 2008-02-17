@@ -24,18 +24,18 @@ License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
 Source0:	http://pear.php.net/get/PEAR-%{_PEAR_version}.tgz
-Source1:	http://pear.php.net/get/Archive_Tar-%{_Archive_Tar_version}.tar.bz2
-Source2:	http://pear.php.net/get/Console_Getopt-%{_Console_Getopt_version}.tar.bz2
+Source1:	http://pear.php.net/get/Archive_Tar-%{_Archive_Tar_version}.tgz
+Source2:	http://pear.php.net/get/Console_Getopt-%{_Console_Getopt_version}.tgz
 Source3:	http://pear.php.net/get/DB-%{_DB_version}.tgz
 Source4:	http://pear.php.net/get/Log-%{_Log_version}.tgz
-Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tar.bz2
-Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tar.bz2
-Source7:	http://pear.php.net/get/Mail_mimeDecode-%{_Mail_mimeDecode_version}.tar.bz2
+Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tgz
+Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tgz
+Source7:	http://pear.php.net/get/Mail_mimeDecode-%{_Mail_mimeDecode_version}.tgz
 Source8:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tgz
-Source9:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tar.bz2
-Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tar.bz2
-Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tar.bz2
-Source12:	http://pear.php.net/get/Structures_Graph-%{_Structures_Graph_version}.tar.bz2
+Source9:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tgz
+Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tgz
+Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tgz
+Source12:	http://pear.php.net/get/Structures_Graph-%{_Structures_Graph_version}.tgz
 Source20:	fixregistry.php
 Provides:	pear = %{version}
 Provides:	php-pear-PEAR = %{_PEAR_version}
@@ -97,10 +97,10 @@ just like the fruit. The purpose of PEAR is to provide:
 
 mv package.xml PEAR.xml
 
-tar -jxf %{SOURCE1}
+tar -zxf %{SOURCE1}
 mv package.xml Archive_Tar.xml
 
-tar -jxf %{SOURCE2}
+tar -zxf %{SOURCE2}
 mv package.xml Console_Getopt.xml
 
 tar -zxf %{SOURCE3}
@@ -109,28 +109,28 @@ mv package.xml DB.xml
 tar -zxf %{SOURCE4}
 mv package.xml Log.xml
 
-tar -jxf %{SOURCE5}
+tar -zxf %{SOURCE5}
 mv package.xml Mail.xml
 
-tar -jxf %{SOURCE6}
+tar -zxf %{SOURCE6}
 mv package.xml Mail_Mime.xml
 
-tar -jxf %{SOURCE7}
+tar -zxf %{SOURCE7}
 mv package.xml Mail_mimeDecode.xml
 
-tar -jxf %{SOURCE8}
+tar -zxf %{SOURCE8}
 mv package.xml Net_SMTP.xml
 
-tar -jxf %{SOURCE9}
+tar -zxf %{SOURCE9}
 mv package.xml Net_Socket.xml
 
-tar -jxf %{SOURCE10}
+tar -zxf %{SOURCE10}
 mv package.xml XML_Parser.xml
 
-tar -jxf %{SOURCE11}
+tar -zxf %{SOURCE11}
 mv package.xml XML_RPC.xml
 
-tar -jxf %{SOURCE12}
+tar -zxf %{SOURCE12}
 mv package.xml Structures_Graph.xml
 
 # cleanup
