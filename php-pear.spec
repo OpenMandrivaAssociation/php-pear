@@ -5,8 +5,8 @@
 %define 	_Console_Getopt_version 1.2.3
 %define 	_Structures_Graph_version 1.0.2
 %define 	_DB_version 1.7.13
-%define 	_Log_version 1.11.0
-%define 	_Mail_version 1.1.14
+%define 	_Log_version 1.11.1
+%define 	_Mail_version 1.2.0
 %define 	_Mail_Mime_version 1.5.2
 %define 	_Mail_mimeDecode_version 1.5.0
 %define 	_Net_SMTP_version 1.3.1
@@ -19,7 +19,7 @@
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.2.6
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -28,7 +28,7 @@ Source1:	http://pear.php.net/get/Archive_Tar-%{_Archive_Tar_version}.tgz
 Source2:	http://pear.php.net/get/Console_Getopt-%{_Console_Getopt_version}.tgz
 Source3:	http://pear.php.net/get/DB-%{_DB_version}.tgz
 Source4:	http://pear.php.net/get/Log-%{_Log_version}.tgz
-Source5:	http://pear.php.net/get/Mail-%{_Mail_version}.tgz
+Source5:	http://pear.php.net/get/Mail-%{_Mail_version}b1.tgz
 Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tgz
 Source7:	http://pear.php.net/get/Mail_mimeDecode-%{_Mail_mimeDecode_version}.tgz
 Source8:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tgz
@@ -254,8 +254,8 @@ install -m0644 Log.xml %{buildroot}%{_datadir}/pear/packages/Log.xml
 
 # Mail
 install -d %{buildroot}%{_datadir}/pear/Mail
-install Mail-%{_Mail_version}/*.php %{buildroot}%{_datadir}/pear/
-install Mail-%{_Mail_version}/Mail/*.php %{buildroot}%{_datadir}/pear/Mail
+install Mail-%{_Mail_version}b1/*.php %{buildroot}%{_datadir}/pear/
+install Mail-%{_Mail_version}b1/Mail/*.php %{buildroot}%{_datadir}/pear/Mail
 install -m0644 Mail.xml %{buildroot}%{_datadir}/pear/packages/Mail.xml
 
 # Mail_Mime
@@ -454,10 +454,12 @@ rm -rf %{buildroot}
 # Mail
 %dir %{_datadir}/pear/Mail
 %{_datadir}/pear/Mail.php
-%{_datadir}/pear/Mail/RFC822.php
 %{_datadir}/pear/Mail/mail.php
+%{_datadir}/pear/Mail/mock.php
 %{_datadir}/pear/Mail/null.php
+%{_datadir}/pear/Mail/RFC822.php
 %{_datadir}/pear/Mail/sendmail.php
+%{_datadir}/pear/Mail/smtpmx.php
 %{_datadir}/pear/Mail/smtp.php
 %{_datadir}/pear/packages/Mail.xml
 
