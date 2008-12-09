@@ -18,7 +18,7 @@
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
-Version:	5.2.7
+Version:	5.2.8
 Release:	%mkrel 1
 License:	PHP License
 Group:		Development/PHP
