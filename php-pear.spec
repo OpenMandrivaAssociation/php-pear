@@ -9,17 +9,17 @@
 %define 	_Mail_version 1.2.0
 %define 	_Mail_Mime_version 1.5.2
 %define 	_Mail_mimeDecode_version 1.5.0
-%define 	_Net_SMTP_version 1.3.1
+%define 	_Net_SMTP_version 1.3.2
 %define 	_Net_Socket_version 1.0.9
-%define 	_XML_Parser_version 1.3.1
+%define 	_XML_Parser_version 1.3.2
 %define 	_XML_RPC_version 1.5.1
 
 %define 	_pear_packages PEAR Archive_Tar Console_Getopt Structures_Graph DB Log Mail Mail_mimeDecode Mail_Mime Net_Socket Net_SMTP XML_Parser XML_RPC
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
-Version:	5.2.8
-Release:	%mkrel 2
+Version:	5.2.9
+Release:	%mkrel 1
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
