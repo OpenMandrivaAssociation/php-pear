@@ -19,7 +19,7 @@
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.3.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -58,7 +58,6 @@ Requires(post): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires(preun): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires:	php-cli php-pcre php-xml php-xmlrpc
 Requires:	hping2
-BuildRequires:	dos2unix
 BuildRequires:	php-cli php-pcre php-xml php-xmlrpc
 Obsoletes:	php-pear-PEAR
 Obsoletes:	php-pear-PEAR-Command
@@ -145,9 +144,6 @@ find . -type f -perm 0444 -exec chmod 644 {} \;
 for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type f -name .#\*`; do
     if [ -e "$i" ]; then rm -rf $i; fi >&/dev/null
 done
-
-# strip away annoying ^M
-find -type f | grep -v ".gif" | grep -v ".png" | grep -v ".jpg" | xargs dos2unix -U
 
 %build
 
