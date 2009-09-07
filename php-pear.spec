@@ -10,16 +10,15 @@
 %define 	_Mail_Mime_version 1.5.2
 %define 	_Mail_mimeDecode_version 1.5.0
 %define 	_Net_SMTP_version 1.3.3
-%define 	_Net_Socket_version 1.0.9
 %define 	_XML_Parser_version 1.3.2
 %define 	_XML_RPC_version 1.5.1
 
-%define 	_pear_packages PEAR Archive_Tar Console_Getopt Structures_Graph DB Log Mail Mail_mimeDecode Mail_Mime Net_Socket Net_SMTP XML_Parser XML_RPC
+%define 	_pear_packages PEAR Archive_Tar Console_Getopt Structures_Graph DB Log Mail Mail_mimeDecode Mail_Mime Net_SMTP XML_Parser XML_RPC
 
 Summary:	PEAR - PHP Extension and Application Repository
 Name:		php-pear
 Version:	5.3.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -32,7 +31,6 @@ Source5:	http://pear.php.net/get/Mail-%{_Mail_version}b1.tgz
 Source6:	http://pear.php.net/get/Mail_Mime-%{_Mail_Mime_version}.tgz
 Source7:	http://pear.php.net/get/Mail_mimeDecode-%{_Mail_mimeDecode_version}.tgz
 Source8:	http://pear.php.net/get/Net_SMTP-%{_Net_SMTP_version}.tgz
-Source9:	http://pear.php.net/get/Net_Socket-%{_Net_Socket_version}.tgz
 Source10:	http://pear.php.net/get/XML_Parser-%{_XML_Parser_version}.tgz
 Source11:	http://pear.php.net/get/XML_RPC-%{_XML_RPC_version}.tgz
 Source12:	http://pear.php.net/get/Structures_Graph-%{_Structures_Graph_version}.tgz
@@ -50,7 +48,6 @@ Provides:	php-pear-Mail = %{_Mail_version}
 Provides:	php-pear-Mail_Mime = %{_Mail_Mime_version}
 Provides:	php-pear-Mail_mimeDecode = %{_Mail_mimeDecode_version}
 Provides:	php-pear-Net_SMTP = %{_Net_SMTP_version}
-Provides:	php-pear-Net_Socket = %{_Net_Socket_version}
 Provides:	php-pear-XML_Parser = %{_XML_Parser_version}
 Provides:	php-pear-XML_RPC = %{_XML_RPC_version}
 Provides:	php-pear-Structures_Graph = %{_Structures_Graph_version}
@@ -58,6 +55,7 @@ Requires(post): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires(preun): php-cli php-pcre php-xml php-xmlrpc hping2
 Requires:	php-cli php-pcre php-xml php-xmlrpc
 Requires:	hping2
+Requires:	php-pear-Net_Socket
 BuildRequires:	php-cli php-pcre php-xml php-xmlrpc
 Obsoletes:	php-pear-PEAR
 Obsoletes:	php-pear-PEAR-Command
@@ -71,7 +69,6 @@ Obsoletes:	php-pear-Mail
 Obsoletes:	php-pear-Mail_Mime
 Obsoletes:	php-pear-Mail_mimeDecode
 Obsoletes:	php-pear-Net_SMTP
-Obsoletes:	php-pear-Net_Socket
 Obsoletes:	php-pear-XML_Parser
 Obsoletes:	php-pear-XML_RPC
 Obsoletes:	php-pear-Structures_Graph
@@ -119,9 +116,6 @@ mv package.xml Mail_mimeDecode.xml
 
 tar -zxf %{SOURCE8}
 mv package.xml Net_SMTP.xml
-
-tar -zxf %{SOURCE9}
-mv package.xml Net_Socket.xml
 
 tar -zxf %{SOURCE10}
 mv package.xml XML_Parser.xml
@@ -266,10 +260,6 @@ install -m0644 Mail_mimeDecode.xml %{buildroot}%{_datadir}/pear/packages/Mail_mi
 # Net_SMTP
 install Net_SMTP-%{_Net_SMTP_version}/SMTP.php %{buildroot}%{_datadir}/pear/Net
 install -m0644 Net_SMTP.xml %{buildroot}%{_datadir}/pear/packages/Net_SMTP.xml
-
-# Net_Socket
-install Net_Socket-%{_Net_Socket_version}/*.php %{buildroot}%{_datadir}/pear/Net
-install -m0644 Net_Socket.xml %{buildroot}%{_datadir}/pear/packages/Net_Socket.xml
 
 # XML_Parser
 install -d %{buildroot}%{_datadir}/pear/XML
@@ -474,10 +464,6 @@ rm -rf %{buildroot}
 # Net_SMTP
 %{_datadir}/pear/Net/SMTP.php
 %{_datadir}/pear/packages/Net_SMTP.xml
-
-# Net_Socket
-%{_datadir}/pear/Net/Socket.php
-%{_datadir}/pear/packages/Net_Socket.xml
 
 # XML_Parser
 %doc XML_Parser-%{_XML_Parser_version}/tests/*
