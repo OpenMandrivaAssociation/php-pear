@@ -1,4 +1,4 @@
-%define	_requires_exceptions pear(../PEAR/RunTest.php)\\|pear(PHPUnit.php)
+%define	_requires_exceptions pear(\\(PHPUnit.*\\|PEAR.*\\))
 %define Archive_Tar_version 1.3.3
 %define Console_Getopt_version 1.2.3
 %define Structures_Graph_version 1.0.2
@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.0
 Epoch:      1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
