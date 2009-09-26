@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.0
 Epoch:      1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -29,6 +29,7 @@ Source24:   http://pear.php.net/get/XML_Util-%{XML_Util_version}.tgz
 BuildRequires:	php-cli
 BuildRequires:	php-xml
 Requires:	php-cli
+Requires:	php-xml
 Obsoletes:	php-pear-XML-Util < %{XML_Util_version}
 Provides:   php-pear-XML-Util = %{XML_Util_version}-%{release}
 Provides:   php-pear(Console_Getopt) = %{Console_Getopt_version}
