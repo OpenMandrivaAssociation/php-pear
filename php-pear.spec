@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.0
 Epoch:      1
-Release:	%mkrel 3
+Release:	%mkrel 5
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -30,14 +30,12 @@ BuildRequires:	php-cli
 BuildRequires:	php-xml
 Requires:	php-cli
 Requires:	php-xml
+Provides:   php-pear-Console_Getopt = %{Console_Getopt_version}
+Provides:   php-pear-Archive_Tar = %{Archive_Tar_version}
+Provides:   php-pear-Structures_Graph = %{Structures_Graph_version}
+Provides:   php-pear-XML_RPC = %{XML_RPC_version}
+Provides:   php-pear-XML_Util = %{XML_Util_version}
 Obsoletes:	php-pear-XML-Util < %{XML_Util_version}
-Provides:   php-pear-XML-Util = %{XML_Util_version}-%{release}
-Provides:   php-pear(Console_Getopt) = %{Console_Getopt_version}
-Provides:   php-pear(Archive_Tar) = %{Archive_Tar_version}
-Provides:   php-pear(PEAR) = %{version}
-Provides:   php-pear(Structures_Graph) = %{Structures_Graph_version}
-Provides:   php-pear(XML_RPC) = %{XML_RPC_version}
-Provides:   php-pear(XML_Util) = %{XML_Util_version}
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
