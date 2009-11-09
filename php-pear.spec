@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.0
 Epoch:      1
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -18,6 +18,7 @@ Source1:    install-pear.php
 Source2:    relocate.php
 Source3:    strip.php
 Source4:    LICENSE
+Source5:    pear.script
 Source10:   pear.sh
 Source11:   pecl.sh
 Source12:   peardev.sh
@@ -117,6 +118,14 @@ rm -rf %{buildroot}/.depdb* %{buildroot}/.lock %{buildroot}/.channels %{buildroo
 # Need for re-registrying XML_Util
 install -m 644 XML_Util.xml %{buildroot}%{_datadir}/pear/.pkgxml/
 
+# rpm filetriggers
+install -d -m 755 %{buildroot}%{_localstatedir}/lib/rpm/filetriggers
+cat > %buildroot%{_localstatedir}/lib/rpm/filetriggers/pear.filter << EOF
+^.%{_datadir}/pear/packages/.*\.xml$
+EOF
+install -m 755 %{SOURCE5} \
+    %{buildroot}%{_localstatedir}/lib/rpm/filetriggers/pear.script
+
 %check
 # Check that no bogus paths are left in the configuration, or in
 # the generated registry files.
@@ -143,3 +152,4 @@ rm -rf %{buildroot}
 %{_datadir}/pear
 %{_bindir}/*
 %dir %{_localstatedir}/cache/php-pear
+%{_localstatedir}/lib/rpm/filetriggers/pear.*
