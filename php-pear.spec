@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.1
 Epoch:      1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -46,9 +46,9 @@ just like the fruit. The purpose of PEAR is to provide:
 
  * A structured library of open-sourced code for PHP users
  * A system for code distribution and package maintenance
- * A standard style for code written in PHP, specified here
- * The PHP Foundation Classes (PFC), see more below
- * The PHP Extension Code Library (PECL), see more below
+ * A standard style for code written in PHP
+ * The PHP Foundation Classes (PFC)
+ * The PHP Extension Code Library (PECL)
  * A web site, mailing lists and download mirrors to support the PHP/PEAR
    community
 
