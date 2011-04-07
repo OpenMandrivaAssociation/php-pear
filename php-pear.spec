@@ -36,7 +36,7 @@ Provides:   php-pear-Archive_Tar = %{Archive_Tar_version}
 Provides:   php-pear-Structures_Graph = %{Structures_Graph_version}
 Provides:   php-pear-XML_RPC = %{XML_RPC_version}
 Provides:   php-pear-XML_Util = %{XML_Util_version}
-Obsoletes:	php-pear-XML-Util < %{XML_Util_version}
+Obsoletes:	php-pear-XML_Util < %{XML_Util_version}
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
