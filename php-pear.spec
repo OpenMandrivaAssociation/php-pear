@@ -8,37 +8,54 @@
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.2
-Epoch:      1
-Release:	%mkrel 2
+Epoch:		1
+Release:	%mkrel 3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
 Source0:	http://pear.php.net/get/PEAR-%{version}.tgz
-Source1:    install-pear.php
-Source2:    relocate.php
-Source3:    strip.php
-Source4:    LICENSE
-Source5:    pear.script
-Source10:   pear.sh
-Source11:   pecl.sh
-Source12:   peardev.sh
-Source20:   http://pear.php.net/get/XML_RPC-%{XML_RPC_version}.tgz
-Source21:   http://pear.php.net/get/Archive_Tar-%{Archive_Tar_version}.tgz
-Source22:   http://pear.php.net/get/Console_Getopt-%{Console_Getopt_version}.tgz
-Source23:   http://pear.php.net/get/Structures_Graph-%{Structures_Graph_version}.tgz
-Source24:   http://pear.php.net/get/XML_Util-%{XML_Util_version}.tgz
+Source1:	install-pear.php
+Source2:	relocate.php
+Source3:	strip.php
+Source4:	LICENSE
+Source10:	pear.sh
+Source11:	pecl.sh
+Source12:	peardev.sh
+Source20:	http://pear.php.net/get/XML_RPC-%{XML_RPC_version}.tgz
+Source21:	http://pear.php.net/get/Archive_Tar-%{Archive_Tar_version}.tgz
+Source22:	http://pear.php.net/get/Console_Getopt-%{Console_Getopt_version}.tgz
+Source23:	http://pear.php.net/get/Structures_Graph-%{Structures_Graph_version}.tgz
+Source24:	http://pear.php.net/get/XML_Util-%{XML_Util_version}.tgz
 BuildRequires:	php-cli
 BuildRequires:	php-xml
 Requires:	php-cli
 Requires:	php-xml
-Provides:   php-pear-Console_Getopt = %{Console_Getopt_version}
-Provides:   php-pear-Archive_Tar = %{Archive_Tar_version}
-Provides:   php-pear-Structures_Graph = %{Structures_Graph_version}
-Provides:   php-pear-XML_RPC = %{XML_RPC_version}
-Provides:   php-pear-XML_Util = %{XML_Util_version}
+Provides:	php-pear-Console_Getopt = %{Console_Getopt_version}
+Provides:	php-pear-Archive_Tar = %{Archive_Tar_version}
+Provides:	php-pear-Structures_Graph = %{Structures_Graph_version}
+Provides:	php-pear-XML_RPC = %{XML_RPC_version}
+Provides:	php-pear-XML_Util = %{XML_Util_version}
 Obsoletes:	php-pear-XML_Util < %{XML_Util_version}
+# the russian roulette fix - start
+# this reduces breakage going from php-pear-5.2.x
+Provides:	pear = %{epoch}:%{version}
+Provides:	php-pear-PEAR = %{epoch}:%{version}
+Provides:	php-pear-PEAR-Command = %{epoch}:%{version}
+Provides:	php-pear-PEAR-Frontend_CLI = %{epoch}:%{version}
+Provides:	php-pear-PEAR-OS = %{epoch}:%{version}
+Obsoletes:	php-pear-PEAR
+Obsoletes:	php-pear-PEAR-Command
+Obsoletes:	php-pear-PEAR-Frontend_CLI
+Obsoletes:	php-pear-PEAR-OS
+%define pear_deps php-pear-DB php-pear-Log php-pear-Mail php-pear-Mail_Mime php-pear-Mail_mimeDecode php-pear-Net_SMTP php-pear-Net_Socket php-pear-XML_Parser
+%if %mdkversion >= 200900
+Suggests:	%{pear_deps}
+%else
+Requires:	%{pear_deps}
+%endif
+# the russian roulette fix - end
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 PEAR is short for "PHP Extension and Application Repository" and is pronounced
