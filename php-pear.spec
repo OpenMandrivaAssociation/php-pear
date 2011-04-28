@@ -18,6 +18,7 @@ Source1:	install-pear.php
 Source2:	relocate.php
 Source3:	strip.php
 Source4:	LICENSE
+Source5:	pear.script
 Source10:	pear.sh
 Source11:	pecl.sh
 Source12:	peardev.sh
