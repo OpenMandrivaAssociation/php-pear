@@ -1,15 +1,15 @@
 %define	_requires_exceptions pear(\\(PHPUnit.*\\|PEAR.*\\))
-%define Archive_Tar_version 1.3.7
+%define Archive_Tar_version 1.3.8
 %define Console_Getopt_version 1.3.1
 %define Structures_Graph_version 1.0.4
-%define XML_RPC_version 1.5.4
+%define XML_RPC_version 1.5.5
 %define XML_Util_version 1.2.1
 
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.4
 Epoch:		1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -48,13 +48,8 @@ Obsoletes:	php-pear-PEAR
 Obsoletes:	php-pear-PEAR-Command
 Obsoletes:	php-pear-PEAR-Frontend_CLI
 Obsoletes:	php-pear-PEAR-OS
-%define pear_deps php-pear-DB php-pear-Log php-pear-Mail php-pear-Mail_Mime php-pear-Mail_mimeDecode php-pear-Net_SMTP php-pear-Net_Socket php-pear-XML_Parser
-%if %mdkversion >= 200900
-Suggests:	%{pear_deps}
-%else
-Requires:	%{pear_deps}
-%endif
 # the russian roulette fix - end
+Suggests:	php-pear-DB php-pear-Log php-pear-Mail php-pear-Mail_Mime php-pear-Mail_mimeDecode php-pear-Net_SMTP php-pear-Net_Socket php-pear-XML_Parser
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
