@@ -1,5 +1,5 @@
 %define	_requires_exceptions pear(\\(PHPUnit.*\\|PEAR.*\\))
-%define Archive_Tar_version 1.3.8
+%define Archive_Tar_version 1.3.9
 %define Console_Getopt_version 1.3.1
 %define Structures_Graph_version 1.0.4
 %define XML_RPC_version 1.5.5
@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.4
 Epoch:		1
-Release:	%mkrel 2
+Release:	3
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -51,7 +51,6 @@ Obsoletes:	php-pear-PEAR-OS
 # the russian roulette fix - end
 Suggests:	php-pear-DB php-pear-Log php-pear-Mail php-pear-Mail_Mime php-pear-Mail_mimeDecode php-pear-Net_SMTP php-pear-Net_Socket php-pear-XML_Parser
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 PEAR is short for "PHP Extension and Application Repository" and is pronounced
@@ -78,7 +77,6 @@ mv package.xml XML_Util.xml
 %build
 
 %install
-rm -rf %{buildroot}
 
 export PHP_PEAR_SYSCONF_DIR=%{_sysconfdir}
 export PHP_PEAR_SIG_KEYDIR=%{_sysconfdir}/pearkeys
@@ -148,9 +146,6 @@ grep '"/tmp"' %{buildroot}%{_sysconfdir}/pear.conf && exit 1
 grep /usr/local %{buildroot}%{_sysconfdir}/pear.conf && exit 1
 grep -rl %{buildroot} %{buildroot} && exit 1
 
-%clean
-rm -rf %{buildroot}
-
 %triggerpostun -- php-pear-XML-Util
 # re-register extension unregistered during postun of obsoleted
 # package php-pear-XML-Util
@@ -158,7 +153,6 @@ rm -rf %{buildroot}
     %{_datadir}/pear/packages/XML_Util.xml >/dev/null || :
 
 %files
-%defattr(-,root,root)
 %doc LICENSE README
 %dir %{_sysconfdir}/pear
 %config(noreplace) %{_sysconfdir}/pear.conf
