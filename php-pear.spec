@@ -1,4 +1,4 @@
-%define	_requires_exceptions pear(\\(PHPUnit.*\\|PEAR.*\\))
+%define	__noautoreq pear\\\\((PHPUnit.*|PEAR.*)\\\\)
 %define Archive_Tar_version 1.3.9
 %define Console_Getopt_version 1.3.1
 %define Structures_Graph_version 1.0.4
@@ -9,7 +9,7 @@ Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Version:	1.9.4
 Epoch:		1
-Release:	3
+Release:	4
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -27,6 +27,7 @@ Source21:	http://pear.php.net/get/Archive_Tar-%{Archive_Tar_version}.tgz
 Source22:	http://pear.php.net/get/Console_Getopt-%{Console_Getopt_version}.tgz
 Source23:	http://pear.php.net/get/Structures_Graph-%{Structures_Graph_version}.tgz
 Source24:	http://pear.php.net/get/XML_Util-%{XML_Util_version}.tgz
+Patch0:		PEAR-1.9.4-use-autoload.patch
 BuildRequires:	php-cli
 BuildRequires:	php-xml
 Requires:	php-cli
@@ -73,6 +74,8 @@ for archive in %{SOURCE0} %{SOURCE21} %{SOURCE22} %{SOURCE23} %{SOURCE24}; do
 done
 tar xzf %{SOURCE24} package.xml
 mv package.xml XML_Util.xml
+
+%patch0 -p1
 
 %build
 
