@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+
+use strict;
+use File::Basename;
+
+my $pear = '/usr/bin/pear';
+my (%installed, %removed);
+while (my $line = <STDIN>) {
+    my ($operation, $file) = $line =~ /^(.)(\S+)$/;
+    if ($operation eq '+') {
+        $installed{$file} = 1;
+    } else {
+        $removed{$file} = 1;
+    }
+}
+
+foreach my $file (keys (%installed)) {
+    system(
+        "$pear install --nodeps --soft --force --register-only $file" .
+        "> /dev/null"
+    );
+}
+
+foreach my $file (keys (%removed)) {
+    next if $installed{$file};
+    my $package = basename($file, '.xml');
+    system(
+        "$pear uninstall --nodeps --ignore-errors --register-only $package" .
+        "> /dev/null"
+    );
+}

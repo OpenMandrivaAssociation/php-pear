@@ -1,15 +1,7 @@
 sources:
-  "Archive_Tar-1.3.9.tgz:"	2c212de36195c542afaf390d4a43d8d954b7fa9a
-  "Console_Getopt-1.3.1.tgz:"	8f9ac495728ee9ba87edd109c3946f11ee72bc08
-  "install-pear.php:"	11f9cd42d7cfd76fd37123f7c74de0f232b5b0a0
-  "LICENSE:"	0ecfd7fd06d146ee7020ec7c4eec06571e691089
-  "PEAR-1.9.4.tgz:"	7c4e88ae5064827507b2c9ae0108eb5972d900db
-  "peardev.sh:"	1c4269cabd75b694a4544d17aa5169bacb77eadc
-  "pear.script:"	b03cddb9ba4ef733814ff02ba1ca6993ab946090
-  "pear.sh:"	5f09d8e509190e7b41d4913b68adda42f2c78f0d
-  "pecl.sh:"	8ddddd583aa41996f7253e977617ff443eb7cbec
-  "relocate.php:"	a1bb5a9d175b1ffe6ffb84589a1c9d4fe800bfd8
-  "strip.php:"	51f649565f6157dac9c94a80502b97dc6c4b375f
-  "Structures_Graph-1.0.4.tgz:"	00f5c2aefad0c3f6490e5ca95da87828e64ebc57
-  "XML_RPC-1.5.5.tgz:"	14dc0a4f09a5d31e56267e243b05114d3da10ce1
-  "XML_Util-1.2.1.tgz:"	8072216577fb9ad684f15e0388ab0b1c0b57e2d4
+  "Archive_Tar-1.3.9.tgz": 2c212de36195c542afaf390d4a43d8d954b7fa9a
+  "Console_Getopt-1.3.1.tgz": 8f9ac495728ee9ba87edd109c3946f11ee72bc08
+  "PEAR-1.9.4.tgz": 7c4e88ae5064827507b2c9ae0108eb5972d900db
+  "Structures_Graph-1.0.4.tgz": 00f5c2aefad0c3f6490e5ca95da87828e64ebc57
+  "XML_RPC-1.5.5.tgz": 14dc0a4f09a5d31e56267e243b05114d3da10ce1
+  "XML_Util-1.2.1.tgz": 8072216577fb9ad684f15e0388ab0b1c0b57e2d4
