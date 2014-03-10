@@ -1,5 +1,5 @@
 %define	__noautoreq pear\\\\((PHPUnit.*|PEAR.*)\\\\)
-%define Archive_Tar_version 1.3.9
+%define Archive_Tar_version 1.3.11
 %define Console_Getopt_version 1.3.1
 %define Structures_Graph_version 1.0.4
 %define XML_RPC_version 1.5.5
