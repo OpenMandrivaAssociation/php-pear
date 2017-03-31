@@ -8,13 +8,13 @@
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Epoch:		1
-Version:	1.9.4
-Release:	13
+Version:	1.10.3
+Release:	1
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
 Source0:	http://pear.php.net/get/PEAR-%{version}.tgz
-Source1:	install-pear.php
+Source1:	https://src.fedoraproject.org/cgit/rpms/php-pear.git/plain/install-pear.php
 Source2:	relocate.php
 Source3:	strip.php
 Source4:	LICENSE
@@ -104,10 +104,11 @@ export INSTALL_ROOT=%{buildroot}
 %{_bindir}/php \
     -n -dmemory_limit=32M -dshort_open_tag=0 -dsafe_mode=0 \
     -derror_reporting=E_ALL -ddetect_unicode=0 \
-    %{SOURCE1} -d %{_datadir}/pear \
+    %{SOURCE1} \
+    -d %{_datadir}/pear \
     -c %{_sysconfdir}/pear \
     -b %{_bindir} \
-    -w %{_localstatedir}/www/html \
+    -w /srv/www/html \
     %{SOURCE0} %{SOURCE21} %{SOURCE22} %{SOURCE23} %{SOURCE24} %{SOURCE20}
 
 # Replace /usr/bin/* with simple scripts:
@@ -155,7 +156,7 @@ grep -rl %{buildroot} %{buildroot} && exit 1
     %{_datadir}/pear/packages/XML_Util.xml >/dev/null || :
 
 %files
-%doc LICENSE README
+%doc LICENSE
 %dir %{_sysconfdir}/pear
 %config(noreplace) %{_sysconfdir}/pear.conf
 %{_datadir}/pear
