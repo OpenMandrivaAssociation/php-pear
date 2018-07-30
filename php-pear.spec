@@ -147,7 +147,7 @@ grep %{buildroot} %{buildroot}%{_sysconfdir}/pear.conf && exit 1
 grep %{_libdir} %{buildroot}%{_sysconfdir}/pear.conf && exit 1
 grep '"/tmp"' %{buildroot}%{_sysconfdir}/pear.conf && exit 1
 grep /usr/local %{buildroot}%{_sysconfdir}/pear.conf && exit 1
-grep -rl %{buildroot} %{buildroot} && exit 1
+grep -rl %{buildroot} %{buildroot} && exit 1 || :
 
 %triggerpostun -- php-pear-XML-Util
 # re-register extension unregistered during postun of obsoleted
