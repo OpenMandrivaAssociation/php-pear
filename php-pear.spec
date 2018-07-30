@@ -1,15 +1,15 @@
 %define	__noautoreq pear\\\\((PHPUnit.*|PEAR.*)\\\\)
-%define Archive_Tar_version 1.3.11
-%define Console_Getopt_version 1.3.1
-%define Structures_Graph_version 1.0.4
+%define Archive_Tar_version 1.4.3
+%define Console_Getopt_version 1.4.1
+%define Structures_Graph_version 1.1.1
 %define XML_RPC_version 1.5.5
-%define XML_Util_version 1.2.1
+%define XML_Util_version 1.4.3
 
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Epoch:		1
-Version:	1.10.3
-Release:	2
+Version:	1.10.5
+Release:	1
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/
@@ -75,7 +75,7 @@ done
 tar xzf %{SOURCE24} package.xml
 mv package.xml XML_Util.xml
 
-%patch0 -p1
+#%%patch0 -p1
 
 %build
 
@@ -156,7 +156,7 @@ grep -rl %{buildroot} %{buildroot} && exit 1
     %{_datadir}/pear/packages/XML_Util.xml >/dev/null || :
 
 %files
-%doc LICENSE
+%doc LICENSE README.rst
 %dir %{_sysconfdir}/pear
 %config(noreplace) %{_sysconfdir}/pear.conf
 %{_datadir}/pear
