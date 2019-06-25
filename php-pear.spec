@@ -8,7 +8,7 @@
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Epoch:		1
-Version:	1.10.5
+Version:	1.10.9
 Release:	2
 License:	PHP License
 Group:		Development/PHP
