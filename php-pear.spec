@@ -1,15 +1,15 @@
 %define	__noautoreq pear\\\\((PHPUnit.*|PEAR.*)\\\\)
-%define Archive_Tar_version 1.4.3
-%define Console_Getopt_version 1.4.1
+%define Archive_Tar_version 1.4.11
+%define Console_Getopt_version 1.4.3
 %define Structures_Graph_version 1.1.1
 %define XML_RPC_version 1.5.5
-%define XML_Util_version 1.4.3
+%define XML_Util_version 1.4.5
 
 Summary:	PHP Extension and Application Repository
 Name:		php-pear
 Epoch:		1
-Version:	1.10.9
-Release:	2
+Version:	1.10.12
+Release:	1
 License:	PHP License
 Group:		Development/PHP
 URL:		http://pear.php.net/package/PEAR/

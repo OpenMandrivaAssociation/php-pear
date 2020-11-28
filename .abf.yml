@@ -1,7 +1,7 @@
 sources:
-  Archive_Tar-1.4.3.tgz: 947d43997ca0c0074b2f154b6487b41aec0e4aa7
-  Console_Getopt-1.4.1.tgz: 1db5b48e15547be532a9c836cd7ef448a3758ddc
-  PEAR-1.10.9.tgz: 121f4543291da473c03121503649737eaa4dd844
+  PEAR-1.10.12.tgz: 6cb4908590eb25ccfa706461fe3eb3faf7ff6f5d
+  Archive_Tar-1.4.11.tgz: 36064090cc7a7caa7a3febe530b5f313e2d04f02
+  Console_Getopt-1.4.3.tgz: 88b7bfce2f71cd99b922fa5eff5247bd754a3bc1
   Structures_Graph-1.1.1.tgz: 2a9e5999e035aa3a6789011238b0a9a54806124a
   XML_RPC-1.5.5.tgz: 14dc0a4f09a5d31e56267e243b05114d3da10ce1
-  XML_Util-1.4.3.tgz: 95e07febe0b6c843c51bfd0157e61fd1ba1e5626
+  XML_Util-1.4.5.tgz: c9fe1448ae7af4522f2cdfd741e14b1ef3998309
