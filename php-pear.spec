@@ -12,7 +12,7 @@ Version:	1.10.12
 Release:	2
 License:	PHP License
 Group:		Development/PHP
-URL:		http://pear.php.net/package/PEAR/
+URL:		https://pear.php.net/package/PEAR/
 Source0:	http://pear.php.net/get/PEAR-%{version}.tgz
 Source1:	https://src.fedoraproject.org/cgit/rpms/php-pear.git/plain/install-pear.php
 Source2:	relocate.php
